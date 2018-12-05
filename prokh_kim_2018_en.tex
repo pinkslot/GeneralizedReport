@@ -68,15 +68,16 @@
 	\end{center}
 	\begin{center}
 		{\it ${}^a$690041 Vladivostok, str. Radio, 7, Institute of Applied Mathematics; \\ ${}^b$690950 Vladivostok, str. Sukhanova, 8,
-			FarEast Federal University}\\
+			Far East Federal University}\\
 		e-mail: prokhorov@iam.dvo.ru
 	\end{center}
 	\begin{quote}
 		{\bf Abstract.} 
 		We consider the Cauchy problem for a non-stationary radiation 
 		transfer equation in a three-dimensional multicomponent medium 
-		with generalized matching conditions. Considered matching condition 
-		describe Fresnel and diffuse reflection and refraction at the interfaces. 
+		with generalized matching conditions. 
+Considered matching condition describes 
+                                Fresnel and diffuse reflection and refraction at the interfaces. 
 		Uniqueness and existence of solving for initial-boundary value problem are proved. 
 		A Monte-Carlo numerical method was constructed to find a solution taking 
 		into account the space-time localization of radiation sources, 
@@ -94,11 +95,24 @@
 	\setcounter{corollary}{0}\setcounter{remark}{0}
 
  	
-Studies of the theoretical and numerical aspects of initial-boundary value problems for kinetic equations have a rather long history (see, for example, \cite{1,2,3,4,5}). Nevertheless, at the moment, this trend has not lost its relevance. The rapid development of computing over the last decades allows us to solve really time-consuming computational problems of the radiation transfer theory. In turn, new sophisticated models, new statements of direct, inverse, and extremal problems require theoretical substantiation and the creation of numerical methods for solving its \cite{6,7,8,9,10,11,12,13,14,15,16,17,18}.
+Studies of the theoretical and numerical aspects of initial-boundary value problems for kinetic equations have a rather long history (see, for example, \cite{1,2,3,4,5}). Nevertheless, at the moment, this trend has not lost its relevance. The rapid development of   %computing 
+computational methods over the last decades allows us to solve really time-consuming computational problems of the radiation transfer theory. In turn, new sophisticated models, new statements of direct, inverse, and extremal problems require theoretical substantiation and the creation of numerical methods for solving its \cite{6,7,8,9,10,11,12,13,14,15,16,17,18}.
 
-Conditions at the interfaces of media play a special role in the theory of radiation transfer. This conditions allow describe a number of physical effects not taken into account in the radiation transfer equation (reflection, refraction, surface sources, etc.). Neglecting effects of this kind leads to the traditional conditions of matching, like a continuous solution <<gluing>> or <<shot>> \cite{2.6}. Solvability of stationary boundary-value problems with generalized conjugation conditions describing the Fresnel or diffuse reflection and refraction at the interfaces of the media is investigated in the papers \cite{19,20,21,22,23,24,25,26}. Problems for non-stationary radiation transfer equations with generalized conjugation conditions in a three-dimensional bounded media and in a plane-parallel layered media are considered in \cite{27,28,29,30,31,32,33}.
+Conditions at the interfaces of media 
+play a special role 
+in the theory of radiation transfer. This conditions allow 
+to describe a number of physical effects not taken into account in the radiation transfer equation (reflection, refraction, surface sources, etc.). Neglecting effects of this kind leads to the traditional conditions of matching, 
+like 
+as a continuous solution <<gluing>> or <<shot>> \cite{2.6}. Solvability of stationary boundary-value problems with generalized
+conjugation 
+conditions describing the Fresnel or diffuse reflection and refraction at the interfaces of the media is investigated in the papers \cite{19,20,21,22,23,24,25,26}. Problems for non-stationary radiation transfer equations with generalized matching
+conjugation 
+conditions in a three-dimensional bounded media and in a plane-parallel layered media are considered in \cite{27,28,29,30,31,32,33}.
 
-In this work, the problem of non-stationary transport equation is studied in case, when matching operator is a linear combination of Fresnel and Lambert operators. The correctness of the initial-boundary value problem is proved and the Monte Carlo method for numerical solution are proposed. Earlier, the initial-boundary problem with Fresnel conditions at the interfaces was investigated in \cite{33}, branching modification of the Monte Carlo method was suggested, and its complexity was estimated. One of drawbacks of Monte Carlo methods with reverse ray tracing is poor convergence in case of localized in space and time radiation sources. In this work, in addition to the inclusion of diffuse reflection and refraction in the considered model, we also attempted to build a method that takes into account a priori information about the distribution of radiation sources.
+In this work, the problem of non-stationary transport equation is studied in case, when matching operator is a linear combination of Fresnel and Lambert operators. The correctness of the initial-boundary value problem is proved and the Monte Carlo method for numerical solution 
+is 
+proposed. Earlier, the initial-boundary problem with Fresnel conditions at the interfaces was investigated in \cite{33}, branching modification of the Monte Carlo method was suggested, and its complexity was estimated. One of drawbacks of Monte Carlo methods with reverse ray tracing is poor convergence 
+in case when radiation sources are localized in space and time. In this work, in addition to the inclusion of diffuse reflection and refraction in the considered model, we also attempted to build a method that takes into account a priori information about the distribution of radiation sources.
 
 Consider the following integro-differential equation \cite{29,30,31,32,33}
 \begin{equation}
@@ -108,15 +122,19 @@ Consider the following integro-differential equation \cite{29,30,31,32,33}
 \omega')I(r,\omega',t)d\omega' + J(r,\omega,t).
 \end{equation}
 Equation (1) describes the non-stationary process of interaction
-radiation with matter. The function $I(r,\omega,t)$ is interpreted
-as the particle flux density at a time moment $t\in [0,\infty)$,
+radiation with matter. The function $I(r,\omega,t)$ is interpreted as the  
+particle 
+radiation flux density at a time moment $t\in [0,\infty)$,
 in point $r\in \mathbb{R}^3$, moving at speed $v$ in
 direction of a unit vector $\omega \in \Omega=\{\omega \in
 \mathbb{R}^3: |\omega|=1\}$. Functions $\mu,\sigma, p$ and $J$ mean
 attenuation and scattering coefficients,
-indicatrix scattering and density of internal sources.
+indicatrix of scattering and density of internal sources.
 
-The process of radiation transfer occurs in the multicomponent system $G$ consisting of the union of a finite number of bounded and pairwise disjoint subregions $G_1, G_2, ..., G_m$, with the closure of $\overline{G} $ being a convex set in $\mathbb{R}^3 $. A boundary of each area $G_i, \partial G_i = \overline{G} _i \setminus G_i$ belongs to the class $C^1$. The surface $\partial \overline{G} $ will be called the outer boundary of the set $G$, and $\gamma = \partial G \setminus \partial \overline{G} $ the inner boundary of the set $G$. For definiteness, we mean the outward normal as the normal unit vector $n(z)$ to the surface $\partial \overline{G}$ at the point $z$. If $z$ is the contact point of two adjacent regions $G_i$ and $G_j$, $ 1 \leq i < j \leq m $, then the normal $n(z)$ is external to a surface with large index, that is, to $\partial{G_j} $.
+The process of radiation transfer occurs in the multicomponent media $G$ 
+consisting of the union of a finite number of bounded and pairwise disjoint subregions $G_1, G_2, ..., G_m$, with the closure of $\overline{G} $ being a convex set in $\mathbb{R}^3 $. A boundary of each area $G_i, \partial G_i = \overline{G} _i \setminus G_i$ belongs to the class $C^1$. The surface $\partial \overline{G} $ will be called the outer boundary of the set $G$, and $\gamma = \partial G \setminus \partial \overline{G} $ the inner boundary of the set $G$. For definiteness, we mean the outward normal as the  unit vector $n(z)$ 
+normal
+to the surface $\partial \overline{G}$ at the point $z$. If $z$ is the contact point of two adjacent regions $G_i$ and $G_j$, $ 1 \leq i < j \leq m $, then the normal $n(z)$ is external to a surface with large index, that is, to $\partial{G_j} $.
 
 For brevity, we introduce some notations:
 $$
@@ -142,10 +160,10 @@ $$
 
 In each subregions $G_i$ functions $v(r),\mu(r), \sigma(r),
 p(r,\omega \cdot \omega')$ do not depend on variable $r$ and
-equals to a value $v(r)=v_i>0, \mu(r)=\mu_i > 0,
+are equal to  values $v(r)=v_i>0, \mu(r)=\mu_i > 0,
 \sigma(r)=\sigma_i, \sigma(r) \leq \mu(r)$, $p(r,\omega \cdot
 \omega')=p_i(\omega \cdot \omega') \geq 0$, where function
-$p_i(\omega \cdot \omega')$ integrable on a segment $[-1,1]$ 
+$p_i(\omega \cdot \omega')$ is integrable on a segment $[-1,1]$ 
 and satisfies the normalization condition
 $$
 \int \limits_{\Omega} p_i(\omega \cdot \omega') d\omega'=1.
@@ -180,7 +198,7 @@ The matching operator $\mathcal B$ is a linear combination of the Fresnel and di
 \mathcal BI^+ = \alpha_f \mathcal B_{f}I^+ + \alpha_d \mathcal
 B_{d}I^+.
 \end{equation}
-Where $B_{f}$ ---  Fresnel conjugation operator describing the mirror reflection and refraction according to Snell's law on the media interfaces  \cite{20,22,29,31,33}
+Where $B_{f}$ ---  Fresnel matching operator describing the mirror reflection and refraction according to Snell's law on the media interfaces  \cite{20,22,29,31,33}
 \begin{equation}
 (\mathcal B_{f}I^+)(z,\omega,t) = R(z,\omega)
 I^+(z,\omega_{re},t) + T(z,\omega) I^+(z,\omega_{tr},t),
@@ -256,7 +274,7 @@ At the outer boundary of $ \partial\overline{G} $, the effects of reflection, re
 
 We also assume the fulfillment of the generalized convexity condition \cite{2,6} for the set {G}: any line that has a common point with $G$ intersects $\partial G$ in a finite number of points.
 
-Let $\Pi_{\omega}$ is a orthogonal projection of the set $G$ onto a plane perpendicular to a direction $\omega $ and passing through a fixed point in $\mathbb{R}^3$, and the set $\Pi_{\xi,\omega} $, where $\xi \in \Pi_{\omega}, \omega \in \Omega $ is the intersection of the line $ \{\xi + \tau \omega, \; - \infty < \tau <+\infty \} $ and sets $G$. Then, by the generalized convexity condition, the one-dimensional open set $ \Pi_{\xi, \omega} $ is the union of a finite number of intervals.
+Let $\Pi_{\omega}$ be the orthogonal projection of the set $G$ onto a plane perpendicular to a direction $\omega $ and passing through a fixed point in $\mathbb{R}^3$, and the set $\Pi_{\xi,\omega} $, where $\xi \in \Pi_{\omega}, \omega \in \Omega $ is the intersection of the line $ \{\xi + \tau \omega, \; - \infty < \tau <+\infty \} $ and the set $G$. Then, by the generalized convexity condition, the one-dimensional open set $ \Pi_{\xi, \omega} $ is the union of a finite number of intervals.
 
 \begin{equation}
 \begin{array}{c}
@@ -289,7 +307,7 @@ $$
 $$
 
 For convenience, we introduce the function $h \in L_{\infty}( X^{-})$ 
-like:
+as:
 $$
 h(z,\omega,t)=\left\{%
 \begin{array}{ll}
@@ -300,9 +318,9 @@ h_{ext}(z,\omega,t), & \hbox{if} \; (z,\omega,t) \in Y^-_{ext}, \\
 \right.
 $$
 and define the matching operator, assuming $({\cal B} \phi) (r,\omega,t)=0$ for all $(r,\omega,t) \in X^-_{ext}$ .
-So function $h$ and functions that belong to definition areas of operator ${\cal B}$, defines on $X^{-}$.
+So function $h$ and functions that belong to definition areas of operator ${\cal B}$, are defined on $X^{-}$.
 
-Let $d(r,-\omega,t)=\min\{d(r,-\omega), v_i t \}$, where value $d(r,-\omega)$ --- is a distance between $r \in G_i \subset G$ and boundary of area $G_i$ in a direction $-\omega$, that is
+Let $d(r,-\omega,t)=\min\{d(r,-\omega), v_i t \}$, where value $d(r,-\omega)$ --- is a distance between $r \in G_i \subset G$ and boundary of the area $G_i$ in a direction $-\omega$, that is
 $d(r,-\omega) = \sup \limits_{\tau
 	> 0} \{ r- \tau' \omega \in G_i \; \text{for all} \; \tau' \in [0,\tau) \}$.
 
@@ -310,7 +328,7 @@ $d(r,-\omega) = \sup \limits_{\tau
 $D(X)$, if after proper change on the set of measure zero in $X$:
 1) for almost all $(r,\omega,t) \in G_i \times \Omega
 \times [0,\infty)$, $i=1,...,m$, function $f(r+\tau\omega,\omega,t+\tau/v_i)$
-the function is absolutely continuous by $\tau,\,\tau \in
+ is absolutely continuous by $\tau,\,\tau \in
 (d(r,-\omega,t), d(r,\omega)]$, and derivative of the function $f$ in point $(r,t)\in G_i \times [0,\infty)$ in direction $(\omega_1,\omega_2,\omega_3,1/v_i)$
 $$ 
 \left (\frac{1}{v_i} \frac{\partial }{\partial t } + \omega
@@ -318,7 +336,7 @@ $$
 \frac{\partial}{\partial \tau}
 f\left(r+\tau\omega,\omega,t+\tau/v_i\right) \right |_{\tau=0},
 $$
-exists and for almost all $(r,\omega,t) \in X$ belongs to space $L_{\infty}
+existing for almost all $(r,\omega,t) \in X$ belongs to space $L_{\infty}
 (X)$;
 
 2) $f \in L_{\infty} (X)$, $f^{\pm}\in L_{\infty} (X^{\pm})$;
@@ -326,7 +344,7 @@ exists and for almost all $(r,\omega,t) \in X$ belongs to space $L_{\infty}
 
 
 Let operators ${\cal L}: D(X) \to L_{\infty}(X)$ and ${\cal S}:
-L_{\infty}(X) \to L_{\infty}(X)$ define by the equations:
+L_{\infty}(X) \to L_{\infty}(X)$ defined by the equalities:
 \begin{equation}
 {\cal L} f = \left (\frac{1}{v} \frac{\partial }{\partial t } +
 \omega \cdot \nabla_r \right) f + \mu f,
@@ -381,7 +399,7 @@ Condition (13) means that the solution of this problem is equivalent to the solu
 f= \mathcal P (h+\mathcal B f^+) +{\mathcal E}\Phi.
 \end{equation}
 In the following, we will need an additional restriction on the regularity of the boundary of the set $G$: 
-there is $\delta,\delta',\, 0< \delta < 1,\, \delta'>0$, such that $z \in \partial G$ set 
+there are $\delta,\delta',\, 0< \delta < 1,\, \delta'>0$, such that for any point $z \in \partial G$ the set 
 $\{z+\tau\omega:\, \delta \leq |n(z)\cdot \omega| \leq 1,\, 0 <|\tau| <\delta'\}$ hasn't intersections with $\partial G$. 
 Conditions of this kind are typical in studying the properties of anisotropic Sobolev spaces.
 
@@ -389,7 +407,7 @@ Conditions of this kind are typical in studying the properties of anisotropic So
 Equation (14) has at most one solution in $D$ 
 \end{lemma}
 {\bf Proof.}
-Let functions $f_1,f_2\in D$ is solutions of inhomogeneous equation (14), then function $f=f_1-f_2$ satisfies a homogeneous equation (14). Consequently, the function $f$ is a solution of equation (14) for $\Phi = 0$, and $f^+$ satisfies the relation
+Let functions $f_1,f_2\in D$ are solutions of inhomogeneous equation (14), then function $f=f_1-f_2$ satisfies a homogeneous equation (14). Consequently, the function $f$ is a solution of equation (14) for $\Phi = 0$, and $f^+$ satisfies the relation
 \begin{equation}
 f^+= \mathcal P (\mathcal B f^+)\; \text{for} \; X^+.
 \end{equation}
@@ -404,14 +422,15 @@ Given this circumstance, from (16) we obtain
 Estimate the operator norm
 $\mathcal B_d \mathcal P: L_{\infty}(X^-\setminus X^-_{ext})\to L_{\infty}(X^+)$.
 Since on the set $X^- \setminus X^-_{ext}$ function $d(r,-\omega,t)$ equals $d(r,-\omega)$,  
-and operators $\mathcal B_d$ and $\mathcal P$ are non-negative, then we get the following inequality \begin{multline}
+and operators $\mathcal B_d$ and $\mathcal P$ are non-negative, then we get the following inequality 
+\begin{multline}
 \|\mathcal B_d \mathcal  P  \|_{L_{\infty}(X^-\setminus X^-_{ext})\to L_{\infty}(X^+)} \leq \\ \leq  \sup \limits_{(z,\omega)\in \Gamma^+} \left| \frac{R_d (z,\omega)}{\pi}  \int
 \limits_{\Omega(z,-\omega)} e^{-\overline{\sigma} d(z,-\omega')} |n(z)\cdot \omega'| d \omega' +   \frac{T_d (z,\omega)}{\pi} \int
 \limits_{\Omega(z,+\omega)} e^{-\overline{\sigma} d(z,-\omega')} |n(z)\cdot \omega'| d
 \omega'  \right|,
 \end{multline}
 where $\overline{\sigma}=\max \limits_{i=\overline{1,m}} \sigma_i$.
-Let $W_{\pm}$ is the following integrals
+Let $W_{\pm}$ be the following integrals
 $$
 W_{\pm}(z,\omega)=\frac{1}{\pi} \int \limits_{\Omega(z,\pm \omega)}\exp \left (- \overline{\sigma} d(z,-\omega')\right)  |n(z)\cdot \omega'| d\omega'
 $$
@@ -428,14 +447,14 @@ We introduce Lebesgue integration on a sphere $\Omega$, suggesting $d\omega'=d\n
 \omega'_3=&\nu.
 \end{cases}
 \end{equation}
-Taking into account the condition on the regularity of the boundary, we obtain
+Taking into account the boundary regularity condition we obtain
 \begin{multline}
 W_+(z,\omega)=\frac{1}{\pi} \int \limits_{0}^{2\pi} \int \limits_{0}^{1} \exp \left (- \overline{\sigma} d(z,-\omega'(\nu,\varphi))\right)  \nu d \nu d\varphi \leq \\  \leq \frac{1}{\pi} \int \limits_{0}^{2\pi} \int \limits_{0}^{\delta}   \nu d \nu d\varphi
 + \frac{1}{\pi} \int \limits_{0}^{2\pi} \int \limits_{\delta}^{1} \exp \left (- \overline{\sigma}\delta'\right)  \nu d \nu d\varphi
 \leq \\ \leq
 \delta^2 +  (1-\delta^2)\exp \left (- \overline{\sigma} \delta'\right) =1-(1-\delta^2)(1-\exp \left (- \overline{\sigma} \delta'\right))
 \end{multline}
-It is easy to see, value $C_1=1-(1-\delta^2)(1-\exp \left (- \overline{\sigma} \delta'\right))$ less then one while $0<\delta<1,\,\delta'>0$.
+It is easy to see, the value $C_1=1-(1-\delta^2)(1-\exp \left (- \overline{\sigma} \delta'\right))$ is less then one while $0<\delta<1,\,\delta'>0$.
 Similarly, we can show, $W_+(z,\omega) \leq C_1$ while $n(z) \cdot \omega<0$ and $W_-(z,\omega) \leq C_1$ for almost all $(z,\omega)$. 
 Thus, from (18) and (20) we find
 \begin{equation}
@@ -451,7 +470,10 @@ From (18) and (20) we get
 \|\alpha_f +\alpha_d \|\mathcal  B_d \mathcal P \|_{L_{\infty}(X^-\setminus X^-_{ext})\to L_{\infty}(X^+)} \|_{L_{\infty}(\gamma)}  \|  f^+\|_{L_{\infty}(X^+)} \leq \\ \leq 
  \|\alpha_f  +\alpha_d C_1 \|_{L_{\infty}(\gamma)}  \| f^+\|_{L_{\infty}(X^+)}= C_2\| f^+\|_{L_{\infty}(X^+)}.
 \end{multline}
-The function $\alpha_d(z)$  are constant while $z\in \partial G_i$, $i=1,...,m$, so if $\alpha_d(z)>0$ for at least one border $z\in \partial G_j$, then the constant $C_2= \|\alpha_f  +\alpha_d C_1 \|_{L_{\infty}(\gamma)}$ in (22) less than one. Since $C_2<1$ , then inequation (22) is possible only when $f^+=0$ almost everywhere on $X^+$ and hence, from (15) it follows that $f = 0$ almost everywhere on $X$.
+By condition the function $\alpha_d(z)$  is constant while $z\in \partial G_i$, $i=1,...,m$, so if $\alpha_d(z)>0$ 
+for at least one border $z\in \partial G_j$, then the constant $C_2= \|\alpha_f  +\alpha_d C_1 \|_{L_{\infty}(\gamma)}$ in (22) is less than one. 
+Since $C_2<1$ , then inequality (22) is possible only when $f^+=0$ almost everywhere on $X^+$ and hence, 
+from (15) it follows that $f = 0$ almost everywhere on $X$.
 
 Consider the case when $ \alpha_d (z) = 0 $ everywhere on $\gamma$. In this case, the matching operator $\mathcal B$ includes only the Fresnel component $\mathcal B_f $.
 
@@ -476,15 +498,16 @@ f(\xi+\tau\omega,\omega,t+\tau/\tilde{v}_i)=f^-(\xi+\tau_i (\xi,\omega)
 \limits^{\tau}_{\tau_i(\xi,\omega)} \mu(\xi+\tau'\omega) d\tau'
 \right ),
 $$
-where value $\tilde{v}_i$ from $f(\xi+\tau\omega,\omega,t+\tau/\tilde{v}_i)$ equals to $v_j$ if interval $\{\xi+\tau\omega$, $\tau\in (\tau_i(\xi,\omega), \tau_{i+1}(\xi,\omega))\}$ belong to area $G_j$. 
+where value $\tilde{v}_i$ from $f(\xi+\tau\omega,\omega,t+\tau/\tilde{v}_i)$ equals to $v_j$ 
+if interval $\{\xi+\tau\omega$, $\tau\in (\tau_i(\xi,\omega), \tau_{i+1}(\xi,\omega))\}$ belongs to area $G_j$. 
 
-From the last equation follows that function
+From the last equation it follows that function
 $f(\xi+\tau\omega,\omega,t+\tau/v)$ for $\tau \in
 (\tau_i(\xi,\omega), \tau_{i+1}(\xi,\omega)]$ does not change sign.
 
 We also take into account that ${\mathcal L f} = \Phi \in L_{\infty}(X)$ and hence, 
 function ${\mathcal L f}$ is bounded and measurable on the set $G\times \Omega$, almost everywhere if $t\in[0,\infty)$ 
-by the Fubini theorem.
+by the Fubini's theorem.
 
 Multiply the equation ${\mathcal L}f=0$ by the function $ {\sgn}
 (f(r,\omega,t))$ and integrate its on the set $G\times \Omega$
@@ -516,7 +539,7 @@ dr d\omega= \\
 \end{multline}
 
 We get, using boundary conditions (23),(24) and equation (25) by the theorem  
-theorem on the change of variables in the surface integral($ d\xi =
+on the change of variables in the surface integral($ d\xi =
 |n(z) \cdot \omega| d s_z$):
 \begin{multline}
 A =
@@ -670,7 +693,7 @@ $\blacksquare$
 	\end{equation}
 \end{lemma}
 {\bf Proof.} Uniqueness of a solution of the equation (31)
-follows from the lemma 1, let's show existence of the equation.
+follows from the lemma 1, let's show existence of the solution.
 
 We introduce the notations $\Phi_{\pm},h_{\pm}$ for the following functions:
 $$
@@ -708,13 +731,13 @@ f_{\pm,n}= \mathcal P \mathcal B f^+_{\pm,n-1} + f_{\pm,0} \quad
 n=1,2,....
 \end{equation}
 Since operators $\mathcal P,\mathcal E, \mathcal B$
-non-negation, then $f_{+,0}, f_{+,1},..., f_{+,n},...$ is 
+are nonnegative, then $f_{+,0}, f_{+,1},..., f_{+,n},...$ is 
 monotonically increasing sequence of functions and $f_{-,0},
 f_{-,1},..., f_{-,n},...$ is monotonically decreasing sequence. 
 Let's show, that sequence $\{f_{+,n} \}$ is bounded above as well as
 sequence $\{f_{-,n} \}$ is bounded below.
 
-For function $f_{+,0}$ estimation (32) ensues from the following following chain of inequalities, 
+For function $f_{+,0}$ estimation (32) ensues from the following chain of inequalities, 
 valid for almost all $(r,\omega,t)\in X$,
 \begin{multline}
 f_{+,0} \leq \max \limits_{1\leq i \leq m} \left \|
@@ -736,7 +759,7 @@ d(r,-\omega,t)) \left\|\frac{\Phi_+}{\mu} \right\|_{X}
 
 Assuming the function $f_{+, n-1}$ is satisfied to inequality (32), 
 make sure it is also true for the function $f_{+, n}$.
-Indeed, since the supports of the functions $h$ and ${\mathcal B} f^+_{+, n}$ do 
+Indeed, since the supporters of the functions $h$ and ${\mathcal B} f^+_{+, n}$ do 
 not intersect and  $\|{\mathcal B}\| \leq 1$ , then for almost all
 $(r,\omega,t)\in X$ we get form (34) that
 
@@ -785,13 +808,13 @@ satisfying the estimation (32).
 
 $\blacksquare$
 
-From the lemmas 1 and 2, it follows that a inverse operator to operator ${\cal L}$ exists and bounded.
+From the lemmas 1 and 2, it follows that an inverse operator to operator ${\cal L}$ exists and bounded.
 We introduce the norm on the linear set $D$
 \begin{equation}
 \|f\|_{D}= \max \left \{\|f^-\|_{L_{\infty}(X^-_{ext})},\left \|\frac{{\cal L}
 	f}{\mu} \right\|_{L_{\infty}(X)}\right\}.
 \end{equation}
-Since $\mu \geq conts >0$, then from the inequality (32) follows
+Since $\mu \geq conts >0$, then from the inequality (32) it follows
 \begin{equation}
 \|f\|_{L_{\infty}(X)} \leq \|f\|_{D}.
 \end{equation}
@@ -805,7 +828,7 @@ It means the set $D \subset L_{\infty}(X)$ with norm (36) forms a Banach functio
 	\overline{\lambda} = \max \limits_{1\leq i\leq m} \lambda_i
 	<1\,\quad \lambda_i = \sigma_i/\mu_i,
 	\end{equation}
-	then solution $I$ of the equation (13) in $D$ exists and unique.
+	then solution $I$ of the equation (13) in $D$ exists and is unique.
 \end{theorem}
 
 {\bf Proof.} Since the function $p$ is non-negative and
@@ -839,7 +862,7 @@ The proof of Theorem 1 is complete.$\blacksquare$
 
 Note, condition (38) ensures the existence and
 uniqueness of a bounded solution for $ t \in [0, \infty) $. 
-AT a class of functions that admit unbounded growth of a solution as $ t
+At a class of functions that admit unbounded growth of a solution as $ t
 \to \infty $, or in the case of a finite time interval ($ t \in [0, t ^ *], t ^ * <
 \infty $) the fulfillment of the condition $ \overline {\lambda} <1 $ for the correctness of the problem
 not required. Indeed, if $ \sigma_i \geq \mu_i $, then after replacing $ I = I _ {\lambda} e ^ {\lambda t} $
@@ -850,24 +873,23 @@ will automatically satisfy the condition (38). Theorem 1 implies
 the existence and uniqueness of the solution $ I _ {\lambda} $, and
 hence, the solutions $ I $ of the original problem.
 
-Note, condition (38) ensures the existence and
-uniqueness of a bounded solution for $t \in [0,\infty)$.
+%Note, condition (38) ensures the existence and
+%uniqueness of a bounded solution for $t \in [0,\infty)$.
 
-For class of functions that allow unlimited growth of a solution when $t \to \infty$,
-or in the case of a finite period of time ($t\in [0,t^*], t^* < \infty $) 
-fulfillment of the condition $\overline{\lambda}<1$ is not required for the task correctness.
-Indeed, if $\sigma_i \geq \mu_i$, then after replacing $I= I_{\lambda} e^{\lambda t}$
-where $\lambda$ is an arbitrary number satisfying the conditions
-$\dfrac{\sigma_i}{\mu_i +\lambda/v_i} < 1,\, i=1,2,...,m$,
-original data of the initial-boundary value problem for the function $I_{\lambda}$
-will satisfy the condition (38). Theorem 1 implies
-the existence and uniqueness of the solution $I_{\lambda}$ and the solution $I$ for the original problem.
+%For class of functions that allow unlimited growth of a solution when $t \to \infty$,
+%or in the case of a finite period of time ($t\in [0,t^*], t^* < \infty $) 
+%fulfillment of the condition $\overline{\lambda}<1$ is not required for the task correctness.
+%Indeed, if $\sigma_i \geq \mu_i$, then after replacing $I= I_{\lambda} e^{\lambda t}$
+%where $\lambda$ is an arbitrary number satisfying the conditions
+%$\dfrac{\sigma_i}{\mu_i +\lambda/v_i} < 1,\, i=1,2,...,m$,
+%original data of the initial-boundary value problem for the function $I_{\lambda}$
+%will satisfy the condition (38). Theorem 1 implies
+%the existence and uniqueness of the solution $I_{\lambda}$ and the solution $I$ for the original problem.
 
-\section {Monte Carlo method for finding solutions to the initial-boundary value problem}
-There is a wide variety of numerical solutions.
-radiation transfer equations \cite {1,2,3,4,5,12,13,14,15,16,17,18,19}. However, in
-general multidimensional case and especially when solving real
-there are practically no alternatives to Monte Carlo methods
+%\section {Monte Carlo method for finding solutions to the initial-boundary value problem}
+%There is a wide variety of numerical methods for solving radiation transfer equations.  \cite {1,2,3,4,5,12,13,14,15,16,17,18,19}. %However, in
+%general multidimensional case and especially when solving real tasks
+%there are practically no alternatives to Monte Carlo methods
 
 \section{Monte Carlo method of numerical solving for the initial-boundary value problem}
 There is a large variety of numerical methods for solving the radiation transfer equations 
@@ -893,7 +915,7 @@ I_n = (\mathcal{PB} + \mathcal{ES}) I_{n-1} + I_0,\quad n = 1, 2 \dots N
 are the basis for constructing numerical algorithms for calculating the unknown function~$I$. 
 This form of unknown function has a visual physical representation.
 Each term of the sequence $I_n$ is an approximation of the function $I$, 
-taking into account the radiation that interacts with the medium no more than $n$ times
+taking into account the radiation that interacts with the medium no more than $n$ times.
 The application of the $\mathcal{PB} + \mathcal{ES}$ operator to an element of the sequence $I_ {n-1}$ 
 determines the contribution of radiation that has from $1$ to $n$ acts of interaction with the environment, 
 and the term $I_0$ takes into account the contribution of radiation coming from sources without 
@@ -908,7 +930,7 @@ I_N \approx \overline{\cal I}_{N}.
 
 To find value of ${\cal I}_{n}$ in point
 $x=(r,\omega,t)\in G_i \times \Omega \times [0,\infty)$
-we calculate function ${\cal I}_{n-1}$ in four other points:
+we calculate function ${\cal I}_{n-1}$ at four other points:
 \begin{equation}
 \begin{array}{ll}
   x_{re}=(r_h,\omega_{re}, t_h), &
@@ -937,7 +959,7 @@ we calculate function ${\cal I}_{n-1}$ in four other points:
 \end{array}
 \end{equation}
 
-Also we calculate functions $h$ and $J$ in points
+Also we calculate functions $h$ and $J$ at points
 $$
 x_h=(r_h,\omega,t_h),\quad
 x_s=(r_{sc},\omega,t_{sc})
@@ -968,10 +990,10 @@ $$
 f_\tau = \displaystyle{\frac{\exp(-\mu_i \tau)}{(1-\exp(-\mu_i d(r,
 -\omega, t)))}}.
 $$
-to sample random vectors $\omega_{sc}, \omega_{di} $ we gonna try to use the distribution laws 
+To sample random vectors $\omega_{sc}, \omega_{di} $ we gonna try to use the distribution laws 
 minimizing the variance of the result estimate.
 
-RAndom values $\omega_{di}$, $\tau, \omega_{sc}$ are independent, it means
+Random values $\omega_{di}$, $\tau, \omega_{sc}$ are independent, it means
 \begin{multline}
 D({\cal I}_n(x)) = \exp(-\mu_i d(r, -\omega, t)) \frac{\alpha_d(x_h) K_d(x_h)} {f_{\omega_{di}}} D({\cal I}_{n-1}^+ (x_{di})) + \\
  + \frac{1 - \exp(-\mu_i d(r, -\omega, t))}{\mu_i p(\omega_{sc})} D(J(x_{s}) + \sigma_i {\cal I}_{n-1}(x_{sc}))
@@ -1012,12 +1034,12 @@ are also simplified and take the form:
 \end{multline}
 {Note also that assumption (48), in some sense,
 expresses the absence of a priori information about the the function ${\cal I}_{n-1} $
-at the time of calculating the value of $ {\cal I}_n(x) $.
+at the moment of calculation the value of $ {\cal I}_n(x) $.
 
 In the case when the density function of external sources $h(x)$ is priori known,
 we could use this information to reduce the variance of the generated random values.
 
-Let's consider branching chains of a random variables, with transition functions are given by relations (44).
+Let's consider branching chains of a random variables, with transition functions given by relations (44).
 We introduce the notation for the elements of these chains according to the following recursive rule:
 the element of the chain of the $N$-th level is denoted by $x_{in_1, in_2, ..., in_n}$,
 if it was received from the element $x_{in_1, in_2, ..., in_{n-1}}$ after interaction of the type $in_n$,
@@ -1044,7 +1066,7 @@ Let's write in more detail the terms responsible for the contribution of the rad
 p(r,\omega \cdot\omega_{sc}) h(x_{sc, h})d\tau d\omega_{sc},
 \end{multline}
 
-Minimum dispersion of these random values achieved at
+Minimum dispersion of these random values is achieved at
 \begin{equation}
 f_{\omega_{di}} =\frac{K_d(x_h) h(x_{di, h})} {\int\limits_{\Omega} K_d(x_h) h(x_{di, h}) d \omega_{di}}
 \end{equation}
@@ -1055,7 +1077,7 @@ f_{\omega_{sc}} = \frac{\exp(- \mu_i (d(r-\tau\omega, -\omega_{sc}, t-\tau/v_i) 
 
 In the case when the choice of the distribution laws 
 $f_{\omega_{di}}, \omega_{sc}$ 
-only affects the variance of the relevant terms.
+affects only the variance of the relevant terms
 ${\cal I}_{n-2}^{di, h}, {\cal I}_{n-2}^{sc, h}$,
 this distribution will also optimize sampling of the original random vector ${\cal I}_N(x)$.
 Assumption (48) actually expresses the absence
@@ -1083,7 +1105,7 @@ Let's describe the experiments.
 The purpose of the first experiment is to visualize the evolutionary process of radiation propagation in the medium.
 The studied medium is located above the diffusely reflecting plane $(\alpha_f = 0, R_d(z) = 1)$.
 The radiation decreases with the coefficients $\alpha_d = (0.7, 0.2, 0.2)$,
-for the red, green and blue channel, respectively in each diffuse interaction.
+for the red, green and blue channel, respectively at each diffuse interaction.
 
 There are on the plane:
 
@@ -1096,7 +1118,7 @@ balls, with a transparent surface $(\alpha_f = 1, \alpha_d = 0, \kappa(z) = 1)$,
 filled with \textit{strongly} scattering substance with an interaction coefficient $\mu(r) = 2.3$ and
 $\sigma(r)=(0.1, 0.7, 0.8)$ for each channel.
 
-There is a statuette \cite{35} in the center of the scene, its surface has the following characteristics:
+There is a statuette \cite{35} at the center of the scene, its surface has the following characteristics:
 $\alpha_f = (0.05, 0.45, 0.05),  \alpha_d = (0.35, 0.1, 0.1),  R_d(z) = 1, \kappa(z) = 1.3$, $\mu(r) = 2.3$,
 $\sigma(r)=(0.1, 0.7, 0.8)$.
 
@@ -1104,8 +1126,8 @@ The radiation source is located at the boundary of the studied region and its de
 from the point $(z_s, t_s)$, i.e $h(z, \omega, t) = exp(-|z-z_s|^2 - |t-t_s|^2)$.
 
 Fig. 1 presents the results of the experiment for time moments $t = 110, 115, 120 \dots$.
-We can see how the radiation is consistently
-illuminates more and more distant parts of the scene, while the time coordinate is increase.
+We can see how the radiation consistently
+illuminates more and more distant parts of the scene, while the time coordinate  increases.
 This effect, as well as shadows, translucency of the scattering balls, glares on the mirror surfaces,
 absence of glares at diffuse boundaries and mutual reflection of objects in each other speak about
 the ability of obtaining accurate, photo-realistic reconstructions by using the developed algorithms.
@@ -1125,9 +1147,9 @@ the ability of obtaining accurate, photo-realistic reconstructions by using the 
 In the second experiment, we tried to compare the efficiency of the algorithms 
 with the optimized sampling of random vector $\omega_{di}, \omega_{sc}$ by formulas (55), (56) 
 and the standard method with the probability densities ${\displaystyle f_{\omega_{di}} = K_d(x_h)}$. 
-We fixed a value of the time coordinate $t = 155$ and saved the images after certain intervals, while our algorithm were working. 
+We fixed a value of the time coordinate $t = 155$ and saved the images after certain intervals, while our algorithm was working. 
 Fig.2 shows the calculation results for two modifications of the Monte Carlo algorithm. 
-The first pair is images taken in $2^1$ sec., the second one in $2^3$ sec., the third one in $2^5$ sec. etc. 
+The first pair are images taken in $2^1$ sec., the second one in $2^3$ sec., the third one in $2^5$ sec. etc. 
 The upper figures correspond to the standard method, the lower to optimized. 
 
 It should be noted, in the optimized method we used much simpler distribution law instead of law by formulas (55), (56) to simplify the sampling:
@@ -1167,9 +1189,9 @@ interacted with the medium will be taken into account less accurately, or even c
 The analysis allows us to determine conditions of effectiveness for each method. 
 Optimized sampling allows to obtain a sufficiently high-quality image of the corresponding image areas in a short time 
 at the stage of modeling diffusely reflected and scattered radiation. 
-However, with medium terms of rendering, if there is a strong repeatedly interacted radiation 
+However, with intermediate terms of rendering, if there is a strong repeatedly interacted radiation 
 on the scene, the use of an optimized algorithm can lead to emissions.
-In the limit, with an increasing of operating time, both methods give similar results.
+In the limit, with an increase of operating time, both methods give similar results.
 
 
 
